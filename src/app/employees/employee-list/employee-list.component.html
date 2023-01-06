@@ -1,0 +1,26 @@
+<div>
+  <h2>Angular using Memory Web API POC</h2>
+  Employee Name: <input type="text" name="employeeName"  [(ngModel)]="employee.name"><br><br>
+  Position: <input type="text" name="position"  [(ngModel)]="employee.position"><br><br>
+  Salary: <input type="text" name="salary"  [(ngModel)]="employee.salary"><br><br>
+  <button [hidden]="add" (click)="addEmployee()">add Employee</button>
+  <button [hidden]="edit" (click)="updateEmployee()">Update Employee Details</button>
+</div><br>
+<table id="employees">
+  <tr>
+    <th>S/N</th>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Salary</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor="let employee of employees">
+    <td>{{employee.id}}</td>
+    <td>{{employee.name}}</td>
+    <td>{{employee.position}}</td>
+    <td>{{employee.salary}}</td>
+    <td><button (click)="setEmployeeEdit(employee)">Update</button></td>
+    <td><button (click)="removeEmployeet(employee)">Delete</button></td>
+  </tr>
+</table>
